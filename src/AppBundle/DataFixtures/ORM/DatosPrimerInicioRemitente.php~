@@ -1,0 +1,59 @@
+<?php
+
+namespace Cys\EncoBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+
+use Cys\EncoBundle\Entity\Remitente;
+
+class DatosPrimerInicioRemitente extends AbstractFixture implements OrderedFixtureInterface 
+{
+    public function getOrder() {
+        return 4;
+    }
+
+    public function load(ObjectManager $manager) {
+
+        $emailAdmin = new Remitente();
+        $emailAdmin->setId(1);
+        $emailAdmin->setUsuario('intranet@promobank.cl');
+        $emailAdmin->setClave('Intra.,225');
+        $emailAdmin->setEmail('intranet@promobank.cl');
+        $emailAdmin->setHostname('mail.promobank.cl');
+        $emailAdmin->setPuerto('25');
+        $emailAdmin->setAutenticacion('');
+        $emailAdmin->setNombre('Administrador de Correos');
+        $emailAdmin->setCarpetaSpool('@CysEncoBundle/Spool/admin');
+        $emailAdmin->setInboxHostname('mail.promobank.cl');
+        $emailAdmin->setInboxProtocolo('imap');
+        $emailAdmin->setInboxPuerto('143');
+        $emailAdmin->setInboxAutenticacion('notls');
+        $emailAdmin->setCopiaOculta('');
+
+        $email01 = new Remitente();
+        $email01->setId(4);
+        $email01->setUsuario('mjleri@promobank.cl');
+        $email01->setClave('LmMj.,1717');
+        $email01->setEmail('mjleri@promobank.cl');
+        $email01->setHostname('mail.promobank.cl');
+        $email01->setPuerto('25');
+        $email01->setAutenticacion('');
+        $email01->setNombre('Maria Jose Leri');
+        $email01->setCarpetaSpool('@CysEncoBundle/Spool/mjleri');
+        $email01->setInboxHostname('mail.promobank.cl');
+        $email01->setInboxProtocolo('imap');
+        $email01->setInboxPuerto('143');
+        $email01->setInboxAutenticacion('notls');
+        $email01->setCopiaOculta('mail.promobank.cl');
+
+        $manager->persist($emailAdmin);
+        $manager->persist($email01);
+
+        $manager->flush();
+
+        $this->setReference('remitente-admin',$emailAdmin);
+        $this->setReference('remitente-mjleri',$email01);
+    }
+}

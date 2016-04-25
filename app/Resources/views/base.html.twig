@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--el orden da igual (ojo en navegador/inspeccionar para reconcoer posibles errores-->
+
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}"  />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/graph.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/icon-font.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+
+       
+
+        {% block stilesheets ' '%}
+        
+        {% block head %}
+       
+        
+        
+        
+        {% endblock %}
+    </head>
+        
+    <body>
+        
+        
+        
+        {% block body %}
+        {% include 'layout/formulario.html.twig'%}
+        {% endblock %}
+        
+        {% block javascripts ''%}
+        
+        
+        <footer>
+        {% block footer %}
+            {% include 'layout/footer.html.twig'%}
+        {% endblock %}
+    </footer>
+    <!--van al final en el body el jquery.min.js primero y despues bootstrap.min.js-->
+    
+        <script src="{{ asset('js/jquery-1.10.2.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.flexisel.js') }}"></script>
+        <script src="{{ asset('js/jquery.flot.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.nicescroll.js') }}"></script>
+        <script src="{{ asset('js/Chart.js') }}"></script>
+        <script src="{{ asset('js/classie.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
+        <script src="{{ asset('js/skycons.js') }}"></script>
+        <script src="{{ asset('js/uisearch.js') }}"></script>
+        <script src="{{ asset('js/wow.min.js') }}"></script>
+        
+    </body>
+    
+    
+</html>
